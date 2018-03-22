@@ -1,0 +1,36 @@
+Private Sub Import_Text_Click()
+    Convert
+End Sub
+
+Sub Convert()
+    Dim SplitData
+    Open "C:\Users\home\Desktop\myfile.txt" For Input As #1 'change this line depending on location of file '
+    While Not EOF(1)
+        Input #1, mydata
+        If mydata = "FIELDS" Then
+            For Row = 2 To 4
+                Input #1, mydata
+                Cells(Row, 1) = mydata
+            Next Row
+        End If
+        If mydata = "STEPS" Then
+            For col = 2 To 8
+                Input #1, mydata
+                Cells(2, col) = mydata
+            Next col
+        End If
+        If mydata = "FORCE" Then
+            For col = 2 To 8
+                Input #1, mydata
+                Cells(3, col) = mydata
+            Next col
+        End If
+        If mydata = "DAY" Then
+            For col = 2 To 8
+                Input #1, mydata
+                Cells(1, col) = mydata
+            Next col
+        End If
+    Wend
+    Close 1
+End Sub
