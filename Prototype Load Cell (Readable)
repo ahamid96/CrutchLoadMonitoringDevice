@@ -1,0 +1,31 @@
+// Arduino with load cell
+
+// Put two known loads on the sensor and take readings. Put those values
+// here.
+float aReading = 167;
+float aLoad = 0; // lbs.
+float bReading = 180;
+float bLoad = 5.05; // lbs.
+
+long time = 0;
+int interval = 500; // Take a reading every 500 ms
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  float newReading = analogRead(1);
+  
+  // Calculate load based on A and B readings above
+  float load = ((bLoad - aLoad)/(bReading - aReading)) * (newReading - aReading) + aLoad;
+  
+  // millis returns the number of milliseconds since the board started the current program
+  if(millis() > time + interval) {
+    Serial.print("Reading: ");
+    Serial.print(newReading,1); // 1 decimal place
+    Serial.print("  Load: ");
+    Serial.println(load,1);  // 1 decimal place, println adds a carriage return
+    time = millis();
+  }
+}
