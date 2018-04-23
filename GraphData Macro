@@ -1,0 +1,36 @@
+Private Sub Graph_Steps_Click()
+    CreateChart
+End Sub
+
+Sub CreateChart()
+Dim xaxis As Range
+Dim yaxis As Range
+Set xaxis = Range("$A$2", Range("$A$2").End(xlToRight))
+Set yaxis = Range("$A$1", Range("$A$1").End(xlToRight))
+
+Dim c As Chart
+Set c = ActiveWorkbook.Charts.Add
+Set c = c.Location(Where:=xlLocationAsObject, Name:="Sheet1")
+With c
+    .ChartType = xlXYScatterLines
+End With
+
+Dim s As Series
+Set s = c.SeriesCollection.NewSeries
+With s
+    .Values = yaxis
+    .XValues = xaxis
+End With
+
+With c.Axes(xlCategory)
+    .MajorUnit = 0.125
+End With
+
+With c
+    .Axes(xlCategory, xlPrimary).HasTitle = True
+    .Axes(xlCategory, xlPrimary).AxisTitle.Characters.Text = "Time"
+    .Axes(xlValue, xlPrimary).HasTitle = True
+    .Axes(xlValue, xlPrimary).AxisTitle.Characters.Text = "Load"
+    .HasLegend = False
+End With
+End Sub
