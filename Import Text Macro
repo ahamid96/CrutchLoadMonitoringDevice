@@ -10,7 +10,7 @@ Sub Convert()
     Dim col As Integer
     row = 1
     col = 1
-    Open "C:\Users\home\Desktop\DATALOG.txt" For Input As #1 'change depending on location of file '
+    Open "C:\DATALOG.txt" For Input As #1 'change depending on location of file '
     While Not EOF(1)
         Input #1, load
         Cells(row, col) = load
