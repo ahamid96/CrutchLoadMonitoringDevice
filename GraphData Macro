@@ -1,32 +1,35 @@
-Private Sub Graph_Steps_Click()
-    CreateChart
+Private Sub GraphData_Click()
+    Graph
 End Sub
 
-Sub CreateChart()
+Sub Graph()
+
 Dim xaxis As Range
 Dim yaxis As Range
-Set xaxis = Range("$A$2", Range("$A$2").End(xlToRight))
-Set yaxis = Range("$A$1", Range("$A$1").End(xlToRight))
+Set xaxis = Range("$B$4", Range("$B$4").End(xlDown))
+Set yaxis = Range("$A$4", Range("$A$4").End(xlDown))
 
-Dim c As Chart
-Set c = ActiveWorkbook.Charts.Add
-Set c = c.Location(Where:=xlLocationAsObject, Name:="Sheet1")
-With c
+Dim f As Chart
+Set f = ActiveWorkbook.Charts.Add
+Set f = f.Location(Where:=xlLocationAsObject, Name:="Sheet2")
+With f
     .ChartType = xlXYScatterLines
+    ' set other chart properties
 End With
 
-Dim s As Series
-Set s = c.SeriesCollection.NewSeries
-With s
+Dim v As Series
+Set v = f.SeriesCollection.NewSeries
+With v
     .Values = yaxis
     .XValues = xaxis
+    ' set other series properties
 End With
 
-With c.Axes(xlCategory)
-    .MajorUnit = 0.125
+With f.Axes(xlCategory)
+    .MajorUnit = 0.0001
 End With
 
-With c
+With f
     .Axes(xlCategory, xlPrimary).HasTitle = True
     .Axes(xlCategory, xlPrimary).AxisTitle.Characters.Text = "Time"
     .Axes(xlValue, xlPrimary).HasTitle = True
