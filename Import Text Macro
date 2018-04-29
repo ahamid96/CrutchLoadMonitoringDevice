@@ -4,21 +4,24 @@ End Sub
 
 Sub Convert()
     Dim time As String
-    Dim load As Integer
+    Dim load As String
+    Dim day As String
     Dim row As Integer
     Dim col As Integer
     row = 1
     col = 1
-    Open "C:\Users\home\Desktop\filetest.txt" For Input As #1 'change depending on location of file '
+    Open "C:\Users\home\Desktop\DATALOG.txt" For Input As #1 'change depending on location of file '
     While Not EOF(1)
         Input #1, load
         Cells(row, col) = load
-        row = 2
+        col = 3
+        Input #1, day
+        Cells(row, col) = day
+        col = 2
         Input #1, time
         Cells(row, col) = time
-        Input #1, mydata
-        col = col + 1
-        row = 1
+        row = row + 1
+        col = 1 
     Wend
     Close 1
 End Sub
