@@ -1,39 +1,278 @@
-Private Sub GraphData_Click()
-    Graph
+Private Sub Graph_Steps1_Click()
+    CreateChart
 End Sub
 
-Sub Graph()
-
+Sub CreateChart()
 Dim xaxis As Range
 Dim yaxis As Range
-Set xaxis = Range("$B$4", Range("$B$4").End(xlDown))
-Set yaxis = Range("$A$4", Range("$A$4").End(xlDown))
+Set xaxis = Range("$B$8", Range("$B$8").End(xlDown))
+Set yaxis = Range("$A$8", Range("$A$8").End(xlDown))
 
-Dim f As Chart
-Set f = ActiveWorkbook.Charts.Add
-Set f = f.Location(Where:=xlLocationAsObject, Name:="Sheet2")
-With f
+Dim c As Chart
+Set c = ActiveWorkbook.Charts.Add
+Set c = c.Location(Where:=xlLocationAsObject, Name:="Sheet1")
+With c
     .ChartType = xlXYScatterLines
     ' set other chart properties
 End With
 
-Dim v As Series
-Set v = f.SeriesCollection.NewSeries
-With v
+Dim s As Series
+Set s = c.SeriesCollection.NewSeries
+With s
     .Values = yaxis
     .XValues = xaxis
     ' set other series properties
 End With
 
-With f.Axes(xlCategory)
-    .MajorUnit = 0.0001
+With c.Axes(xlCategory)
+    .MajorUnit = 0.1
 End With
 
-With f
+With c
     .Axes(xlCategory, xlPrimary).HasTitle = True
     .Axes(xlCategory, xlPrimary).AxisTitle.Characters.Text = "Time"
     .Axes(xlValue, xlPrimary).HasTitle = True
     .Axes(xlValue, xlPrimary).AxisTitle.Characters.Text = "Load"
     .HasLegend = False
 End With
+
+End Sub
+
+Private Sub Graph_Steps2_Click()
+    CreateChart2
+End Sub
+
+Sub CreateChart2()
+Dim xaxis As Range
+Dim yaxis As Range
+Set xaxis = Range("$E$8", Range("$E$8").End(xlDown))
+Set yaxis = Range("$D$8", Range("$D$8").End(xlDown))
+
+Dim c As Chart
+Set c = ActiveWorkbook.Charts.Add
+Set c = c.Location(Where:=xlLocationAsObject, Name:="Sheet1")
+With c
+    .ChartType = xlXYScatterLines
+    ' set other chart properties
+End With
+
+Dim s As Series
+Set s = c.SeriesCollection.NewSeries
+With s
+    .Values = yaxis
+    .XValues = xaxis
+    ' set other series properties
+End With
+
+With c.Axes(xlCategory)
+    .MajorUnit = 0.1
+End With
+
+With c
+    .Axes(xlCategory, xlPrimary).HasTitle = True
+    .Axes(xlCategory, xlPrimary).AxisTitle.Characters.Text = "Time"
+    .Axes(xlValue, xlPrimary).HasTitle = True
+    .Axes(xlValue, xlPrimary).AxisTitle.Characters.Text = "Load"
+    .HasLegend = False
+End With
+
+End Sub
+
+Private Sub Graph_Steps3_Click()
+    CreateChart3
+End Sub
+Sub CreateChart3()
+Dim xaxis As Range
+Dim yaxis As Range
+Set xaxis = Range("$H$8", Range("$H$8").End(xlDown))
+Set yaxis = Range("$G$8", Range("$G$8").End(xlDown))
+
+Dim c As Chart
+Set c = ActiveWorkbook.Charts.Add
+Set c = c.Location(Where:=xlLocationAsObject, Name:="Sheet1")
+With c
+    .ChartType = xlXYScatterLines
+    ' set other chart properties
+End With
+
+Dim s As Series
+Set s = c.SeriesCollection.NewSeries
+With s
+    .Values = yaxis
+    .XValues = xaxis
+    ' set other series properties
+End With
+
+With c.Axes(xlCategory)
+    .MajorUnit = 0.1
+End With
+
+With c
+    .Axes(xlCategory, xlPrimary).HasTitle = True
+    .Axes(xlCategory, xlPrimary).AxisTitle.Characters.Text = "Time"
+    .Axes(xlValue, xlPrimary).HasTitle = True
+    .Axes(xlValue, xlPrimary).AxisTitle.Characters.Text = "Load"
+    .HasLegend = False
+End With
+
+End Sub
+
+Private Sub Graph_Steps4_Click()
+    CreateChart4
+End Sub
+
+Sub CreateChart4()
+Dim xaxis As Range
+Dim yaxis As Range
+Set xaxis = Range("$K$8", Range("$K$8").End(xlDown))
+Set yaxis = Range("$J$8", Range("$J$8").End(xlDown))
+
+Dim c As Chart
+Set c = ActiveWorkbook.Charts.Add
+Set c = c.Location(Where:=xlLocationAsObject, Name:="Sheet1")
+With c
+    .ChartType = xlXYScatterLines
+    ' set other chart properties
+End With
+
+Dim s As Series
+Set s = c.SeriesCollection.NewSeries
+With s
+    .Values = yaxis
+    .XValues = xaxis
+    ' set other series properties
+End With
+
+With c.Axes(xlCategory)
+    .MajorUnit = 0.1
+End With
+
+With c
+    .Axes(xlCategory, xlPrimary).HasTitle = True
+    .Axes(xlCategory, xlPrimary).AxisTitle.Characters.Text = "Time"
+    .Axes(xlValue, xlPrimary).HasTitle = True
+    .Axes(xlValue, xlPrimary).AxisTitle.Characters.Text = "Load"
+    .HasLegend = False
+End With
+
+End Sub
+
+Private Sub Graph_Steps5_Click()
+    CreateChart5
+End Sub
+
+Sub CreateChart5()
+Dim xaxis As Range
+Dim yaxis As Range
+Set xaxis = Range("$N$8", Range("$N$8").End(xlDown))
+Set yaxis = Range("$M$8", Range("$M$8").End(xlDown))
+
+Dim c As Chart
+Set c = ActiveWorkbook.Charts.Add
+Set c = c.Location(Where:=xlLocationAsObject, Name:="Sheet1")
+With c
+    .ChartType = xlXYScatterLines
+    ' set other chart properties
+End With
+
+Dim s As Series
+Set s = c.SeriesCollection.NewSeries
+With s
+    .Values = yaxis
+    .XValues = xaxis
+    ' set other series properties
+End With
+
+With c.Axes(xlCategory)
+    .MajorUnit = 0.1
+End With
+
+With c
+    .Axes(xlCategory, xlPrimary).HasTitle = True
+    .Axes(xlCategory, xlPrimary).AxisTitle.Characters.Text = "Time"
+    .Axes(xlValue, xlPrimary).HasTitle = True
+    .Axes(xlValue, xlPrimary).AxisTitle.Characters.Text = "Load"
+    .HasLegend = False
+End With
+
+End Sub
+
+Private Sub Graph_Steps6_Click()
+    CreateChart6
+End Sub
+
+Sub CreateChart6()
+Dim xaxis As Range
+Dim yaxis As Range
+Set xaxis = Range("$Q$8", Range("$Q$8").End(xlDown))
+Set yaxis = Range("$P$8", Range("$P$8").End(xlDown))
+
+Dim c As Chart
+Set c = ActiveWorkbook.Charts.Add
+Set c = c.Location(Where:=xlLocationAsObject, Name:="Sheet1")
+With c
+    .ChartType = xlXYScatterLines
+    ' set other chart properties
+End With
+
+Dim s As Series
+Set s = c.SeriesCollection.NewSeries
+With s
+    .Values = yaxis
+    .XValues = xaxis
+    ' set other series properties
+End With
+
+With c.Axes(xlCategory)
+    .MajorUnit = 0.1
+End With
+
+With c
+    .Axes(xlCategory, xlPrimary).HasTitle = True
+    .Axes(xlCategory, xlPrimary).AxisTitle.Characters.Text = "Time"
+    .Axes(xlValue, xlPrimary).HasTitle = True
+    .Axes(xlValue, xlPrimary).AxisTitle.Characters.Text = "Load"
+    .HasLegend = False
+End With
+
+End Sub
+
+Private Sub Graph_Steps7_Click()
+    CreateChart7
+End Sub
+
+Sub CreateChart7()
+Dim xaxis As Range
+Dim yaxis As Range
+Set xaxis = Range("$T$8", Range("$T$8").End(xlDown))
+Set yaxis = Range("$S$8", Range("$S$8").End(xlDown))
+
+Dim c As Chart
+Set c = ActiveWorkbook.Charts.Add
+Set c = c.Location(Where:=xlLocationAsObject, Name:="Sheet1")
+With c
+    .ChartType = xlXYScatterLines
+    ' set other chart properties
+End With
+
+Dim s As Series
+Set s = c.SeriesCollection.NewSeries
+With s
+    .Values = yaxis
+    .XValues = xaxis
+    ' set other series properties
+End With
+
+With c.Axes(xlCategory)
+    .MajorUnit = 0.1
+End With
+
+With c
+    .Axes(xlCategory, xlPrimary).HasTitle = True
+    .Axes(xlCategory, xlPrimary).AxisTitle.Characters.Text = "Time"
+    .Axes(xlValue, xlPrimary).HasTitle = True
+    .Axes(xlValue, xlPrimary).AxisTitle.Characters.Text = "Load"
+    .HasLegend = False
+End With
+
 End Sub
