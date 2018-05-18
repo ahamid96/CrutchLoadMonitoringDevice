@@ -6,22 +6,38 @@ Sub Convert()
     Dim time As String
     Dim load As String
     Dim day As String
+    Dim prevday As String
     Dim row As Integer
     Dim col As Integer
-    row = 1
+    Dim group As Integer
+    Dim repeat As Integer
+    group = 0
+    row = 8
     col = 1
+    repeat = 0
+    prevday = " "
     Open "C:\DATALOG.txt" For Input As #1 'change depending on location of file '
     While Not EOF(1)
         Input #1, load
-        Cells(row, col) = load
-        col = 3
         Input #1, day
-        Cells(row, col) = day
-        col = 2
         Input #1, time
-        Cells(row, col) = time
+        If (repeat = 0) Then
+            prevday = day
+            repeat = 1
+        End If
+        If (StrComp(prevday, day, 1) = 0) Then
+            Cells(row, col + group) = load
+            Cells(row, col + group + 1) = time
+            Cells(row, col + group + 2) = day
+        Else
+            group = group + 3
+            row = 8
+            Cells(row, col + group) = load
+            Cells(row, col + group + 1) = time
+            Cells(row, col + group + 2) = day
+        End If
+        prevday = day
         row = row + 1
-        col = 1 
     Wend
     Close 1
 End Sub
